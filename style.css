@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+
    
 }
 
@@ -9,6 +10,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+    height: 100vh ;   
 }
 
 :root{ /* pseudo-elemento do css responsável pela criação de varíaiveis e
@@ -164,6 +166,7 @@ footer{
 ao menos que tenha alguma posição relativa para ele se basear
 por exemplo como o button ta dentro da div
 e a posição da div é relativa: a posição absolute vai se basear na posição relativa da div */
+animation: slide-out .4s forwards;
 }
 
 #switch span{
@@ -185,6 +188,42 @@ margin-top: 20px;
 }
 
 .light #switch button{
-    right: 0;
-    left: initial;
+   
+    animation: slide-in .4s forwards;
 }   
+
+@media(min-width: 700px) {
+    :root {
+        --bg-url: url(./bg-desktop.jpg)
+    }
+
+    .light{
+        --bg-url: url(./bg-desktop-light.jpg)
+    }
+}
+
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+
+}
+
+@keyframes slide-out{
+from{
+   left: 50%;
+
+
+}
+to{
+
+    left: 0 ;
+ }
+
+}
+
+
