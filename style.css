@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+   
+}
+
+body {
+  background: var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+:root{ /* pseudo-elemento do css responsável pela criação de varíaiveis e
+    torna-lá o uso delas globais A pseudo-classe CSS :root se equipara à raiz de uma árvore, que por sua vez representa o documento.
+     Aplicado ao HTML, :root representa o elemento <html> e é idêntico ao seletor html, exceto que sua especificidade é mais alta.
+     como declarar uma váriavel css global: usando "--" por exemplo --main.color
+     
+     */
+    --cor-color: white;
+    --bg-url:  url(./bg-mobile.jpg);
+    --stroke-color:  rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255,255,255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --switch-br-url: url(MoonStars.svg)
+    
+    /* Aqui a variavel bg-url o valor dentro dela é a foto que está sendo selecionada
+    após isso se eu quiser colocar ela no backgorund por exemplo
+    só utilizar o seguinte comando "background - elemento : "var" para puxar a variavel e (nome da variavel") */
+}
+
+.light{
+    --cor-color: black;
+    --bg-url: url(./bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0,0,0,0.05);
+    --surface-color-hover: rgba(0,0,0, 0.02);
+    --switch-br-url: url(Sun.svg)
+  
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-color);    
+    box-sizing: border-box;
+}
+.container{
+  
+    width: 360px;
+   margin: 56px auto 0px;
+   padding: 24px;
+   margin-top: 56px;
+   padding: 0px 24px;
+
+}
+
+.profile{
+    text-align: center;
+}
+
+.profile img{
+    width: 112px;
+
+
+}
+
+.profile p {
+    margin-top: 8px;
+        font-weight: 500;
+        line-height: 24px;
+
+}
+
+ul{
+    list-style: none;
+display: flex;  
+flex-direction: column;
+gap: 16px; /* da espaçamento entre as ul */
+margin-top: 10px;
+padding: 24px 0px   ;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+ul li a {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+padding: 16px 24px; 
+    align-items: center;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    font-weight: 500;
+   transition: background-color 0.5s;
+}
+/* função do hover: seletor que é ativado quando o usuário passa o mouse por cima , aqui no caso quando o usuario
+passar o mouse por cima o background vai mudar de cor e as borda também */
+ul li a:hover{
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid var(--cor-color);   
+}
+
+/*Pode parecer um pouco complicado porém o motivo do uso do ul li a é o seguinte
+o ul é usado para criar a box e criar uma lista não ordenada
+ou seja não tem números, porém a principal utilidade dela é a box mesmo
+o li serve basicamente para fazer outra box assim podendo personalizar
+cada uma separadamente e podendo usar espaçamentos como gap pelo ul
+o a serve para dentro das box li, usar links com hipertexto,
+acaba sendo bem util por que o  */
+
+#socialinks {
+display: flex;
+gap: 16px;
+padding: 24px 0px;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+
+}
+
+#socialinks a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    transition: background-color 0.2s;
+    border-radius: 50%;
+
+}
+
+
+#socialinks a:hover{
+    background: var(--surface-color-hover);
+    padding: 16px;
+
+
+}
+
+footer{
+    text-align: center;
+    padding: 24px 0;
+    font-size: 14px;
+}
+
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-br-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute; /* Coloca o elemento como posição absolute ou seja pode ficar sobreposto a cima de qualquer elemento
+     assim como prédios  */
+    z-index: 1;  /* definiu como 1 ou seja está 1 andar acima span , ou seja ele pode ficar em cima do span sem problemas */
+    left: 0; 
+    transform: translateY(-50%); /* forma de alinhamento de elementos com posição sbsolute sobre a posição relative */
+    top: 50%;
+/* Observação: o elemento quando ganha a posição absoluta fica solto pela página
+ao menos que tenha alguma posição relativa para ele se basear
+por exemplo como o button ta dentro da div
+e a posição da div é relativa: a posição absolute vai se basear na posição relativa da div */
+}
+
+#switch span{
+    width: 64px;
+    height: 24px;
+    background :var(--surface-color);
+    border:1px solid var(--stroke-color);
+ display: block;
+ border-radius: 9999px;
+ 
+}
+
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 0 auto;
+margin-top: 20px;
+
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}   
